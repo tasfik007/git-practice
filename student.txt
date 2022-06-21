@@ -2,3 +2,5 @@ this is a test project
 hello world
 I am adding another feature.
 testing shortcur push pull.
+line 1 for partial commit
+ 
