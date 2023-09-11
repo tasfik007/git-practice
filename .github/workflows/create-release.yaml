@@ -1,4 +1,4 @@
-name: Create Release with Commit Hash
+name: Create Release with Tag Name
 
 on:
   push:
@@ -13,12 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Get commit hash
-        id: commit_hash
-        run: echo "::set-output name=hash::$(git rev-parse --short ${{ github.ref }})"
-
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ github.ref }}
-          title: Release ${{ steps.commit_hash.outputs.hash }}
+          title: ${{ github.ref }}
