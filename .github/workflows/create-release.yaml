@@ -13,9 +13,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Get Tag Name
+      - name: Save state
         id: tag_name
-        run: echo "::set-output name=name::$(basename ${{ github.ref }})"
+        run: echo "{name}=$(basename ${{ github.ref }})" >> $GITHUB_STATE
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
